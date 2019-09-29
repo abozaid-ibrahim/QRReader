@@ -1,0 +1,4 @@
+#Sun Sep 29 02:17:53 EET 2019
+base.0=/Users/abuzeid/workspace/android/QRCode/app/build/intermediates/dex/debug/out/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
