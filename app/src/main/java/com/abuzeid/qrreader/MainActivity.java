@@ -1,96 +1,129 @@
 package com.abuzeid.qrreader;
-import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.graphics.PointF;
-import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 
-import com.dlazaro66.qrcodereaderview.QRCodeReaderView;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
-public class MainActivity extends AppCompatActivity implements QRCodeReaderView.OnQRCodeReadListener {
+import com.dlazaro66.qrcodereaderview.QRCodeReaderView;
+import com.google.android.material.snackbar.Snackbar;
+
+public class MainActivity extends AppCompatActivity     implements ActivityCompat.OnRequestPermissionsResultCallback, QRCodeReaderView.OnQRCodeReadListener {
+
+    private static final int MY_PERMISSION_REQUEST_CAMERA = 0;
+
+    private ViewGroup mainLayout;
 
     private TextView resultTextView;
     private QRCodeReaderView qrCodeReaderView;
+    private CheckBox flashlightCheckBox;
+    private CheckBox enableDecodingCheckBox;
+    private PointsOverlayView pointsOverlayView;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
 
-        qrCodeReaderView = (QRCodeReaderView) findViewById(R.id.qrdecoderview);
-        qrCodeReaderView.setOnQRCodeReadListener(this);
+        mainLayout = (ViewGroup) findViewById(R.id.main_layout);
 
-        // Use this function to enable/disable decoding
-        qrCodeReaderView.setQRDecodingEnabled(true);
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
+                == PackageManager.PERMISSION_GRANTED) {
+            initQRCodeReaderView();
+        } else {
+            requestCameraPermission();
+        }
+    }
 
-        // Use this function to change the autofocus interval (default is 5 secs)
-        qrCodeReaderView.setAutofocusInterval(2000L);
+    @Override protected void onResume() {
+        super.onResume();
 
-        // Use this function to enable/disable Torch
-        qrCodeReaderView.setTorchEnabled(true);
+        if (qrCodeReaderView != null) {
+            qrCodeReaderView.startCamera();
+        }
+    }
 
-        // Use this function to set front camera preview
-//        qrCodeReaderView.setFrontCamera();
+    @Override protected void onPause() {
+        super.onPause();
 
-        // Use this function to set back camera preview
-        qrCodeReaderView.setBackCamera();
+        if (qrCodeReaderView != null) {
+            qrCodeReaderView.stopCamera();
+        }
+    }
+
+    @Override public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+                                                     @NonNull int[] grantResults) {
+        if (requestCode != MY_PERMISSION_REQUEST_CAMERA) {
+            return;
+        }
+
+        if (grantResults.length == 1 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+            Snackbar.make(mainLayout, "Camera permission was granted.", Snackbar.LENGTH_SHORT).show();
+            initQRCodeReaderView();
+        } else {
+            Snackbar.make(mainLayout, "Camera permission request was denied.", Snackbar.LENGTH_SHORT)
+                    .show();
+        }
     }
 
     // Called when a QR is decoded
     // "text" : the text encoded in QR
-    // "points" : points where QR control points are placed in View
-    @Override
-    public void onQRCodeRead(String text, PointF[] points) {
+    // "points" : points where QR control points are placed
+    @Override public void onQRCodeRead(String text, PointF[] points) {
         resultTextView.setText(text);
+        pointsOverlayView.setPoints(points);
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
+    private void requestCameraPermission() {
+        if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.CAMERA)) {
+            Snackbar.make(mainLayout, "Camera access is required to display the camera preview.",
+                    Snackbar.LENGTH_INDEFINITE).setAction("OK", new View.OnClickListener() {
+                @Override public void onClick(View view) {
+                    ActivityCompat.requestPermissions(MainActivity.this, new String[] {
+                            Manifest.permission.CAMERA
+                    }, MY_PERMISSION_REQUEST_CAMERA);
+                }
+            }).show();
+        } else {
+            Snackbar.make(mainLayout, "Permission is not available. Requesting camera permission.",
+                    Snackbar.LENGTH_SHORT).show();
+            ActivityCompat.requestPermissions(this, new String[] {
+                    Manifest.permission.CAMERA
+            }, MY_PERMISSION_REQUEST_CAMERA);
+        }
+    }
+
+    private void initQRCodeReaderView() {
+        View content = getLayoutInflater().inflate(R.layout.content_decoder, mainLayout, true);
+
+        qrCodeReaderView = (QRCodeReaderView) content.findViewById(R.id.qrdecoderview);
+        resultTextView = (TextView) content.findViewById(R.id.result_text_view);
+        flashlightCheckBox = (CheckBox) content.findViewById(R.id.flashlight_checkbox);
+        enableDecodingCheckBox = (CheckBox) content.findViewById(R.id.enable_decoding_checkbox);
+        pointsOverlayView = (PointsOverlayView) content.findViewById(R.id.points_overlay_view);
+
+        qrCodeReaderView.setAutofocusInterval(2000L);
+        qrCodeReaderView.setOnQRCodeReadListener(this);
+        qrCodeReaderView.setBackCamera();
+        flashlightCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                qrCodeReaderView.setTorchEnabled(isChecked);
+            }
+        });
+        enableDecodingCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+                qrCodeReaderView.setQRDecodingEnabled(isChecked);
+            }
+        });
         qrCodeReaderView.startCamera();
     }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        qrCodeReaderView.stopCamera();
-    }
 }
-//
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_main);
-//        scanQR();
-//    }
-//    private  void scanQR(){
-//        try {
-//            Intent intent = new Intent("com.google.zxing.client.android.SCAN");
-//            intent.putExtra("SCAN_MODE", "QR_CODE_MODE"); // "PRODUCT_MODE for bar codes
-//
-//            startActivityForResult(intent, 0);
-//        } catch (Exception e) {
-//            Uri marketUri = Uri.parse("market://details?id=com.google.zxing.client.android");
-//            Intent marketIntent = new Intent(Intent.ACTION_VIEW,marketUri);
-//            startActivity(marketIntent);
-//        }
-//
-//
-//    }
-//    static Integer RESULT_CANCELLED = 23;
-//
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        if (requestCode == 0) {
-//            if (resultCode == RESULT_OK) {
-//                String contents = data.getStringExtra("SCAN_RESULT");
-//            }
-//            if(resultCode == RESULT_CANCELLED){
-//                //handle cancel
-//            }
-//        }
-//    }
-//}

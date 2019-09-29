@@ -68,6 +68,10 @@
         "source": "/Users/abuzeid/workspace/android/QRCode/app/build/generated/res/pngs/debug/drawable-anydpi-v21/ic_launcher_background.xml"
     },
     {
+        "merged": "/Users/abuzeid/workspace/android/QRCode/app/build/intermediates/res/merged/debug/layout_content_decoder.xml.flat",
+        "source": "/Users/abuzeid/workspace/android/QRCode/app/src/main/res/layout/content_decoder.xml"
+    },
+    {
         "merged": "/Users/abuzeid/workspace/android/QRCode/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher_round.png.flat",
         "source": "/Users/abuzeid/workspace/android/QRCode/app/src/main/res/mipmap-mdpi/ic_launcher_round.png"
     },

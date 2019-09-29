@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:2:1-35:12
-INJECTED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:2:1-35:12
-INJECTED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:2:1-35:12
-INJECTED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:2:1-35:12
+ADDED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:2:1-38:12
+INJECTED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:2:1-38:12
+INJECTED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:2:1-38:12
+INJECTED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:2:1-38:12
 MERGED from [com.google.android.material:material:1.0.0] /Users/abuzeid/.gradle/caches/transforms-2/files-2.1/17bad2ab7ffe06846f16485f365839a2/material-1.0.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/abuzeid/.gradle/caches/transforms-2/files-2.1/d0879a552505613a080ae9dfade138c4/appcompat-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.lifecycle:lifecycle-extensions:2.1.0] /Users/abuzeid/.gradle/caches/transforms-2/files-2.1/acf09a26eacb9e2971f06544f38153b6/lifecycle-extensions-2.1.0/AndroidManifest.xml:17:1-25:12
@@ -42,35 +42,41 @@ MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /Users/
 MERGED from [androidx.print:print:1.0.0] /Users/abuzeid/.gradle/caches/transforms-2/files-2.1/26e17a4150a4a3746b7657a931434738/print-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/abuzeid/.gradle/caches/transforms-2/files-2.1/96d28bb6fce06238645378e533562b77/constraintlayout-1.1.3/AndroidManifest.xml:2:1-11:12
 MERGED from [com.dlazaro66.qrcodereaderview:qrcodereaderview:2.0.3] /Users/abuzeid/.gradle/caches/transforms-2/files-2.1/15e23f8f5dbeec282045e59154165edd/qrcodereaderview-2.0.3/AndroidManifest.xml:2:1-12:12
-INJECTED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:2:1-35:12
-INJECTED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:2:1-35:12
-INJECTED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:2:1-35:12
+INJECTED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:2:1-38:12
+INJECTED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:2:1-38:12
+INJECTED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:2:1-38:12
 	package
 		ADDED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:3:5-35
 		INJECTED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml
 	android:versionName
 		INJECTED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml
-		ADDED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:2:1-35:12
+		ADDED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:2:1-38:12
 		INJECTED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml
 	android:versionCode
 		INJECTED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml
-		ADDED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:2:1-35:12
+		ADDED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:2:1-38:12
 		INJECTED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:2:11-69
-uses-permission#android.permission.INTERNET
-ADDED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:7:5-66
+uses-permission#android.permission.CAMERA
+ADDED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:5:5-64
 	android:name
-		ADDED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:7:22-64
+		ADDED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:5:22-62
 uses-feature#android.hardware.camera
-ADDED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:8:5-9:35
-	android:required
-		ADDED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:9:9-32
+ADDED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:7:5-59
 	android:name
-		ADDED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:8:19-57
+		ADDED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:7:19-57
+uses-feature#android.hardware.camera.autofocus
+ADDED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:8:5-69
+	android:name
+		ADDED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:8:19-67
+uses-permission#android.permission.INTERNET
+ADDED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:11:5-66
+	android:name
+		ADDED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:11:22-64
 application
-ADDED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:13:5-33:19
+ADDED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:16:5-36:19
 MERGED from [com.google.android.material:material:1.0.0] /Users/abuzeid/.gradle/caches/transforms-2/files-2.1/17bad2ab7ffe06846f16485f365839a2/material-1.0.0/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.0.0] /Users/abuzeid/.gradle/caches/transforms-2/files-2.1/17bad2ab7ffe06846f16485f365839a2/material-1.0.0/AndroidManifest.xml:22:5-20
 MERGED from [androidx.lifecycle:lifecycle-extensions:2.1.0] /Users/abuzeid/.gradle/caches/transforms-2/files-2.1/acf09a26eacb9e2971f06544f38153b6/lifecycle-extensions-2.1.0/AndroidManifest.xml:22:5-23:19
@@ -86,37 +92,37 @@ MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/abuzeid/.g
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.1.0] /Users/abuzeid/.gradle/caches/transforms-2/files-2.1/a3bceea0e5e4a380a0e111635219b2cc/core-1.1.0/AndroidManifest.xml:24:18-86
 	android:supportsRtl
-		ADDED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:18:9-35
+		ADDED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:21:9-35
 	android:label
-		ADDED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:16:9-41
+		ADDED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:19:9-41
 	android:roundIcon
-		ADDED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:17:9-54
+		ADDED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:20:9-54
 	android:icon
-		ADDED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:15:9-43
+		ADDED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:18:9-43
 	android:allowBackup
-		ADDED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:14:9-35
+		ADDED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:17:9-35
 	android:theme
-		ADDED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:19:9-40
+		ADDED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:22:9-40
 activity#com.abuzeid.qrreader.ui.login.LoginActivity
-ADDED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:22:9-30:20
+ADDED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:25:9-33:20
 	android:label
-		ADDED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:24:13-45
+		ADDED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:27:13-45
 	android:name
-		ADDED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:23:13-51
+		ADDED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:26:13-51
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:25:13-29:29
+ADDED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:28:13-32:29
 action#android.intent.action.MAIN
-ADDED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:26:17-69
+ADDED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:29:17-69
 	android:name
-		ADDED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:26:25-66
+		ADDED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:29:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:28:17-77
+ADDED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:31:17-77
 	android:name
-		ADDED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:28:27-74
+		ADDED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:31:27-74
 activity#com.abuzeid.qrreader.MainActivity
-ADDED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:32:9-59
+ADDED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:35:9-59
 	android:name
-		ADDED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:32:19-47
+		ADDED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml:35:19-47
 uses-sdk
 INJECTED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/abuzeid/workspace/android/QRCode/app/src/main/AndroidManifest.xml
